@@ -677,6 +677,12 @@
          Used to decide if the user can change the colors -->
    <bool name="config_multiColorBatteryLed">false</bool>
 
+    <!-- Adaptive Charging -->
+    <bool name="config_adaptiveChargingAvailable">true</bool>
+    <string name="config_adaptiveChargingSysfsNode" translatable="false">/sys/class/power_supply/battery/input_suspend</string>
+    <string name="config_adaptiveChargingSuspendValue" translatable="false">1</string>
+    <string name="config_adaptiveChargingResumeValue" translatable="false">0</string>
+
     <!-- The default journal mode to use use when Write-Ahead Logging is not active.
          Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
          PERSIST may improve performance by reducing how often journal blocks are
