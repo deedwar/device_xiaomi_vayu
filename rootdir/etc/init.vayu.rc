@@ -19,6 +19,11 @@ on property:vendor.post_boot.parsed=1
     write /sys/block/zram0/max_comp_streams 8
     write /proc/sys/vm/page-cluster 0
 
+on post-fs-data
+    # Allow system to adjust haptic level directly
+    chown system system /sys/module/qti_haptics/parameters/level
+    chmod 0664 /sys/module/qti_haptics/parameters/level
+
 on property:sys.boot_completed=1
     # Enable ZRAM on boot_complete
     write /proc/sys/vm/swappiness 100
@@ -26,7 +31,3 @@ on property:sys.boot_completed=1
 
     # Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
-
-    # Allow system to adjust haptic level directly
-    chown system system /sys/module/qti_haptics/parameters/level
-    chmod 0664 /sys/module/qti_haptics/parameters/level
